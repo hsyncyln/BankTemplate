@@ -1,0 +1,78 @@
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+
+<link href="/styles/credit/insert.css" rel="stylesheet">
+
+<head th:insert="global/layout :: header">...</head>
+<body th:insert="global/layout :: upperNav">...</body>
+
+<body>
+<br>
+<div class="container d-flex justify-content-center align-items-center baseContainer ">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form">
+                    <h2>Yeni Kredi Başvurusu </h2>
+
+                    <form th:action="'/credit/insert'" th:method="post" th:object="${credit_dto}">
+                        <div class="inputbox mt-3 col-md-12">
+                            <span th:text="#{spanIdentityNumber}"></span>
+                            <input th:field="*{identityNumber}" type="text" th:placeholder="#{phIdentitiyNumber}" class="form-control">
+                            <div class="redText" th:if="${#fields.hasErrors('identityNumber')}" th:errors="*{identityNumber}"></div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="inputbox partInput rightDistance">
+                                <span th:text="#{spanName}"></span>
+                                <input th:field="*{name}" type="text" th:placeholder="#{phName}"class="form-control">
+                                <div class="redText" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+                            </div>
+
+                            <div class="inputbox partInput">
+                                <span th:text="#{spanSurname}"></span>
+                                <input th:field="*{surname}" type="text" th:placeholder="#{phSurname}" class="form-control">
+                                <div class="redText" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="inputbox col-md-12 ">
+                            <span th:text="#{spanPhone}"></span>
+                            <input th:field="*{phoneNumber}" type="tel" th:placeholder="#{phPhone}" class="form-control">
+                            <div class="redText" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+
+                        </div>
+
+                        <div class="inputbox col-md-12">
+                            <span th:text="#{spanMonthlySalary}"></span>
+                            <input th:field="*{monthlySalary}" type="number" th:placeholder="#{phMonthlySalary}" class="form-control">
+                            <div class="redText" th:if="${#fields.hasErrors('monthlySalary')}" th:errors="*{monthlySalary}"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center col-md-12">
+                            <div class="text-right col-md-12">
+                                <button th:text="#{btnApply}" type="submit" class="btn btn-success btn-block"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center mt-5"><img src="https://i.imgur.com/98GXnDD.png" width="400"></div>
+
+                <div th:if="${response_message != null}">
+                    <br>
+                    <div class="alertMessage">
+                        <p th:text="${response_message}"></p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+</body>
+
+

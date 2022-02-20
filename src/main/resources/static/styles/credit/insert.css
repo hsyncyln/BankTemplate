@@ -1,0 +1,98 @@
+
+.baseContainer {
+    height: 100vh
+}
+
+.card {
+    width: 100%;
+    padding: 30px
+}
+
+.form {
+    padding: 20px
+}
+
+.form-control {
+    height: 50px;
+    background-color: #eee
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f50057;
+    outline: 0;
+    box-shadow: none;
+    background-color: #eee
+}
+
+.inputbox {
+    margin-bottom: 15px
+}
+
+.register {
+    width: 200px;
+    height: 51px;
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+.register:hover {
+    width: 200px;
+    height: 51px;
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+.login {
+    color: #f50057;
+    text-decoration: none
+}
+
+.login:hover {
+    color: #f50057;
+    text-decoration: none
+}
+
+.form-check-input:checked {
+    background-color: #f50057;
+    border-color: #f50057
+}
+
+.partInput{
+    display: inline-block;
+}
+
+.rightDistance{
+    margin-right: 20px;
+}
+
+.alertMessage{
+    background-color: #d26666;
+    color: #fbf9f9;
+    margin: 10px 50px 10px 50px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+
+.successMessage{
+    background-color: #89d443;
+    color: #fbf9f9;
+    margin: 10px 50px 10px 50px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+
+.full-content{
+    display: contents;
+}
+
+.part-content{
+    display: inline-block;
+}
+
+.redText{
+    color: red;
+}

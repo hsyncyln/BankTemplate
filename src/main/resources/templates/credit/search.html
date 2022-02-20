@@ -1,0 +1,47 @@
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+
+<link href="/styles/credit/insert.css" rel="stylesheet">
+<!--<script src="/scripts/credit/search.js" rel="script"></script>-->
+<head th:insert="global/layout :: header">...</head>
+<body th:insert="global/layout :: upperNav">...</body>
+
+<body>
+<br><br><br><br>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2>Kredi Başvurunu Bul </h2>
+                <div class="inputbox mt-3 col-md-12">
+                    <div class="col-md-7 part-content" >
+                        <span th:text="#{spanIdentityNumber}"></span>
+                        <input type="text" placeholder="TC Kimlik Numaranız" id="IdentityNumber" class="form-control">
+                    </div>
+                    <div class="col-md-4 part-content" >
+                        <div class="text-right full-content col-md-12">
+                            <button class="btn btn-success btn-block" onclick="loadUploadPage()" th:text="#{btnFind}"> </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+
+<div id="loadUpdate"></div>
+</body>
+
+<script>
+    function loadUploadPage() {
+        let id = document.getElementById("IdentityNumber").value;
+        let url = "/credit/update/" + id;
+        $("#loadUpdate").load(url);
+
+        // search.loadUploadPage("#loadUpdate",url);
+    }
+</script>
+
+

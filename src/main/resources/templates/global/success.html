@@ -1,0 +1,34 @@
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+
+<link href="/styles/global/success.css" rel="stylesheet">
+
+<head th:insert="global/layout :: header">...</head>
+<body th:insert="global/layout :: upperNav">...</body>
+<body>
+<br><br><br>
+<div class="container d-flex justify-content-center align-items-center baseContainer ">
+
+<div class="card">
+    <div class="checkIcons">
+        <i class="checkmark">✓</i>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <h3 th:text="${response_message}"></h3>
+        <br>
+
+        <div th:if="${response_dto != null}" th:class="${response_dto.isCreditStatus() ? 'successMessage' : 'alertMessage'}">
+            <p>Kredi Durumunuz: <b th:text="${response_dto.isCreditStatus() ? 'Onaylandı' : 'Reddedildi' }"></b></p>
+            <p>Kredi Skorunuz: <b th:text="${response_dto.getCreditScore()}"></b></p>
+            <p>Kredi Limitiniz: <b th:text="${response_dto.getCreditLimit()}"></b></p>
+        </div>
+        <br>
+    </div>
+    <div class="error-actions" style="text-align: center">
+        <a href="/" class="btn btn-primary btn-lg"><span
+                class="glyphicon glyphicon-home"></span>Anasayfa </a>
+    </div>
+</div>
+</div>
+</body>
+</html>

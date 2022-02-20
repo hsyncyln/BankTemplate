@@ -1,0 +1,87 @@
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+
+<link href="/styles/creditUser/insert.css" rel="stylesheet">
+<head th:insert="global/layout :: header">...</head>
+<body th:insert="global/layout :: upperNav">...</body>
+
+<body>
+<br>
+<div class="container d-flex justify-content-center align-items-center baseContainer ">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form">
+                    <h2>Kredi Başvurunu Güncelle</h2>
+
+                    <form th:action="'/credit/update'" th:method="post" th:object="${credit_dto}">
+                        <div class="inputbox mt-3 col-md-12">
+                            <span th:text="#{spanIdentityNumber}"></span>
+                            <input th:field="*{identityNumber}" th:value="${credit_dto.getIdentityNumber()}" type="text" readonly class="form-control">
+                            <div th:if="${#fields.hasErrors('identityNumber')}" th:errors="*{identityNumber}"></div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="inputbox partInput rightDistance">
+                                <span th:text="#{spanName}"></span>
+                                <input th:field="*{name}" type="text" th:placeholder="#{phName}" name="" class="form-control">
+                                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+                            </div>
+
+                            <div class="inputbox partInput">
+                                <span th:text="#{spanSurname}"></span>
+                                <input th:field="*{surname}" type="text" th:placeholder="#{phSurname}" name="" class="form-control">
+                                <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="inputbox col-md-12 ">
+                            <span th:text="#{spanPhone}"></span>
+                            <input th:field="*{phoneNumber}" type="tel" th:placeholder="#{phPhone}" name="" class="form-control">
+                            <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+
+                        </div>
+
+                        <div class="inputbox col-md-12">
+                            <span th:text="#{spanMonthlySalary}"></span>
+                            <input th:field="*{monthlySalary}" type="number" th:placeholder="#{phMonthlySalary}" name="" class="form-control">
+                            <div th:if="${#fields.hasErrors('monthlySalary')}" th:errors="*{monthlySalary}"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center col-md-12">
+                            <div class="text-right col-md-6">
+                                <button th:text="#{btnUpdate}" type="submit" class="btn btn-success btn-block"></button>
+                            </div>
+                            <div class="text-right col-md-6">
+                                <a th:text="#{btnCancel}" th:href="'/credit/delete/' + ${credit_dto.getId()}" class="btn btn-danger btn-block"></a>
+                            </div>
+                        </div>
+
+                        <input type="hidden" th:field="*{id}" th:value="${credit_dto.getId()}">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center mt-5"><img src="https://i.imgur.com/98GXnDD.png" width="400"></div>
+                <br>
+                <div th:class="${credit_dto.isCreditStatus() ? 'successMessage' : 'alertMessage'}">
+                    <p>Kredi Durumunuz: <b th:text="${credit_dto.isCreditStatus() ? 'Onaylandı' : 'Reddedildi' }"></b></p>
+                    <p>Kredi Skorunuz: <b th:text="${credit_dto.getCreditScore()}"></b></p>
+                    <p>Kredi Limitiniz: <b th:text="${credit_dto.getCreditLimit()}"></b></p>
+                </div>
+
+                <div th:if="${response_message != null}">
+                    <br>
+                    <div class="alertMessage">
+                        <p th:text="${response_message}"></p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
