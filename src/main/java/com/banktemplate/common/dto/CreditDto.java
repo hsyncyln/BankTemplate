@@ -37,5 +37,4 @@ public class CreditDto implements Serializable {
     private double creditLimit;
     private boolean creditStatus;
 
-
 }

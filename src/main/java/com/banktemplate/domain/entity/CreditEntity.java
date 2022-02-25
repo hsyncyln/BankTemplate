@@ -1,4 +1,4 @@
-package com.banktemplate.domain.entities;
+package com.banktemplate.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
