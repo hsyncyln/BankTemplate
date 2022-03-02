@@ -2,6 +2,7 @@
 
 Innova Java Spring Bootcamp Final Project
 
+
 ------
 
 # Projenin Amacı
@@ -11,7 +12,11 @@ Innova Java Spring Bootcamp Final Project
     kişiye ait kredi skoru alınarak belirlenmiş kurallara göre kullanıcıya kredi sonucu
     gösterilir.(Onay veya Red olarak iki seçenek olabilir.)
 
--------
+- Detaylı açıklamayı buradaki
+   <a href="https://github.com/hsyncyln/BankTemplate/blob/master/Innova%20-%20Patika%20Java%20Spring%20Bootcamp%20Final%20Project.pptx">PDF</a> 
+   üzerinden bulabilirsiniz.
+  
+  ----------
 
 ### Reference Documentation
 
